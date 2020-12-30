@@ -1,0 +1,28 @@
+<h1>Blog posts</h1>
+
+{% if blog_list %}
+    <ul>
+    {% for blog in blog_list %}
+        <li><a href="{% url 'showPost' blog.id %}">{{ blog.blog_header }}</a> Written by: {{ blog.blog_owner }} Published: {{ blog.pub_date }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No blog posts.</p>
+{% endif %}
+
+<h2><a href="/project1/addPost">Add new blog post</a></h2>
+
+<form action="findPost" method="post">
+    {% csrf_token %}
+    Find a blog post! <input type="text" name="find_post">
+    <button type="submit">Find!</button>
+</form><br>
+
+<a href="{% url 'showInfo' user.username %}">My info</a><br>
+
+<br>
+
+<form action='signout'>
+    {% csrf_token %}
+    <button type="submit">Sign out</button>
+</form>

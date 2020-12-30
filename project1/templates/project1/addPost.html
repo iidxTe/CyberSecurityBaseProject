@@ -1,0 +1,9 @@
+<h1>Create new blog post</h1>
+<form action='addPost' method="post">
+  {% csrf_token %}
+  Post header: <input type="text" name="header"><br>
+  Post text: <input type="text" name="text"><br>
+  <button type="submit">Save blog post</button>
+</form><br>
+
+<a href="/project1/">Home page</a>
